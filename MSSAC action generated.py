@@ -37,11 +37,7 @@ class Tempbuffer(object):
         self.bdw.append((dw == True))
         # diagnal = 1 if end ;
 
-        # left means the last state is an end state
-        # right means the last state is not an end state
-        # 0 0 1      0 0 0
-        # 0 1 0      0 0 0
-        # 1 0 0      0 0 0
+       
 
     def __len__(self):
         return len(self.ba)
@@ -103,7 +99,7 @@ class Actor(nn.Module):
         net_out = self.a_net(state)
         mu = self.mu_layer(net_out)
         log_std = self.log_std_layer(net_out)
-        log_std = torch.clamp(log_std, self.LOG_STD_MIN, self.LOG_STD_MAX)  # 总感觉这里clamp不利于学习
+        log_std = torch.clamp(log_std, self.LOG_STD_MIN, self.LOG_STD_MAX)  
         # we learn log_std rather than std, so that exp(log_std) is always > 0
         std = torch.exp(log_std)
         dist = Normal(mu, std)
