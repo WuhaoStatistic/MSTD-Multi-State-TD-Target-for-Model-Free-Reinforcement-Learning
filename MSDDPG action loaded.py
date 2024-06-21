@@ -51,11 +51,9 @@ class ReplayBuffer(object):
         '''
         For a long trajectory, our collection is:
          st,  st+1, st+2, st+3 st+4....st+n
-            at
+            at    at+1   at+2
             rt+1   rt+2 rt+3 rtt+4 ...rt+n
                                        dw_n
-        When updating St, only the action taken at St is evaluated, other action will be evaluated when its state
-        is St. For dw, if St+n is collected, then it means former states are not end states.
         '''
         s = np.array(list(tempbuffer.bs))
         a = np.array(list(tempbuffer.ba))
