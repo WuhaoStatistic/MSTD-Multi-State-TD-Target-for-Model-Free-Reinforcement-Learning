@@ -37,11 +37,6 @@ class Tempbuffer(object):
         self.bdw.append((dw == True))
         # diagnal = 1 if end ;
 
-        # left means the last state is an end state
-        # right means the last state is not an end state
-        # 0 0 1      0 0 0
-        # 0 1 0      0 0 0
-        # 1 0 0      0 0 0
 
     def __len__(self):
         return len(self.ba)
