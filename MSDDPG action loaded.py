@@ -35,11 +35,7 @@ class Tempbuffer(object):
         self.bdw.append((dw == True))
         # diagnal = 1 if end ;
 
-        # left means the last state is an end state
-        # right means the last state is not an end state
-        # 0 0 1      0 0 0
-        # 0 1 0      0 0 0
-        # 1 0 0      0 0 0
+      
 
     def __len__(self):
         return len(self.ba)
@@ -98,7 +94,7 @@ class Actor(torch.nn.Module):
         super(Actor, self).__init__()
         self.fc1 = torch.nn.Linear(state_dim, hidden_dim)
         self.fc2 = torch.nn.Linear(hidden_dim, action_dim)
-        self.action_bound = action_bound  # action_bound是环境可以接受的动作最大值
+        self.action_bound = action_bound  
 
     def forward(self, x):
         x = F.relu(self.fc1(x))
@@ -113,7 +109,7 @@ class Critic(torch.nn.Module):
         self.fc_out = torch.nn.Linear(hidden_dim, 1)
 
     def forward(self, x, a):
-        cat = torch.cat([x, a], dim=1)  # 拼接状态和动作
+        cat = torch.cat([x, a], dim=1) 
         x = F.relu(self.fc1(cat))
         x = F.relu(self.fc2(x))
         x = self.fc_out(x)
