@@ -52,8 +52,6 @@ class ReplayBuffer(object):
             at
             rt+1   rt+2 rt+3 rtt+4 ...rt+n
                                        dw_n
-        When updating St, only the action taken at St is evaluated, other action will be evaluated when its state
-        is St. For dw, if St+n is collected, then it means former states are not end states.
         '''
         s = np.array(list(tempbuffer.bs))
         a = np.array(list(tempbuffer.ba))
