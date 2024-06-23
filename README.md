@@ -1,7 +1,9 @@
 # Multi-State-TD-Target-for-Model-Free-Reinforcement-Learning
 Implementation for the paper [Multi-State TD Target for Model-Free Reinforcement Learning](https://arxiv.org/abs/2405.16522)
 
-Each py file can be run individually and we believe this setting can help readers better understand the code structure and match the code with the discription in the paper.
+Each py file can be run individually and we believe this setting can help readers better understand the code structure and match the code with the description in the paper. 
+
+The customized environment should be either from "gymnasium" package or follow the gymnasium style. 
 <table>
   <tr>
     <td><img src="exp/DDPG_HalfCheetah_2steps.png" alt="DDPG_HalfCheetah_2steps" width="300"/></td>
